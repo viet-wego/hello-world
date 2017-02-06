@@ -5,7 +5,7 @@ import (
   "github.com/viettd/hello-world/algorithms/sorting"
 )
 
-const MAX_VALUE = 10
+const MAX_VALUE = 100
 const LENGTH = 10
 
 func main()  {
@@ -20,6 +20,9 @@ func main()  {
 
   copy(arrayToBeSort, srcArray)
   sorting.SelectionSort(arrayToBeSort)
+
+  copy(arrayToBeSort, srcArray)
+  sorting.MergeSort(arrayToBeSort)
 
   //copy(arrayToBeSort, srcArray)
   //fmt.Println("Result: ", sorting.InsertionSort(arrayToBeSort))

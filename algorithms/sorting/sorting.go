@@ -53,8 +53,49 @@ func SelectionSort(array []int) []int  {
   return array
 }
 
+func MergeSort(array []int) []int  {
+  fmt.Println("\nMerge sort")
+  fmt.Println("Source array: ", array)
+  tempArray := make([]int, len(array))
+  doMergeSort(array, tempArray, 0, len(array)-1)
+  fmt.Println("Result array: ", array)
+  return array
+}
 func InsertionSort(array []int) []int  {
   fmt.Println("\nInsertion sort")
 
   return array
+}
+
+func doMergeSort(array, tempArray []int, indexLow, indexHigh int)  {
+  if indexLow < indexHigh {
+    indexMidle := indexLow + (indexHigh-indexLow)/2
+    doMergeSort(array, tempArray, indexLow, indexMidle)
+    doMergeSort(array, tempArray, indexMidle+1, indexHigh)
+    mergeParts(array, tempArray, indexLow, indexMidle, indexHigh)
+  }
+}
+
+func mergeParts(array, tempArray []int, indexLow, indexMidle, indexHigh int)  {
+  fmt.Println(array, tempArray)
+  fmt.Println(indexLow, indexMidle, indexHigh)
+  for i := indexLow; i <= indexHigh; i++ {
+    tempArray[i] = array[i]
+  }
+  i := indexLow
+  j := indexMidle + 1
+  k := indexLow
+  for ; i <= indexMidle && j <= indexHigh; k++ {
+    if tempArray[i] <= tempArray[j] {
+      array[k] = tempArray[i]
+      i++
+    } else {
+      array[k] = tempArray[j]
+      j++
+    }
+  }
+  for ; i <= indexMidle; i++ {
+    array[k] = tempArray[i]
+    k++
+  }
 }
