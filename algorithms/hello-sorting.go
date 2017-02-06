@@ -3,11 +3,11 @@ package main
 import (
   "fmt"
   "math/rand"
-  "github.com/viettd/hello-world/algorithm/sorting"
+  "github.com/viettd/hello-world/algorithms/sorting"
 )
 
-const MAX_VALUE = 10000000
-const LENGTH = 1000
+const MAX_VALUE = 100
+const LENGTH = 10
 
 func main()  {
   srcArray := make([]int, LENGTH)
@@ -18,10 +18,13 @@ func main()  {
   arrayToBeSort := make([]int, LENGTH)
 
   copy(arrayToBeSort, srcArray)
-  fmt.Println("Result: ", sorting.BubbleSort(arrayToBeSort))
+  sorting.BubbleSort(arrayToBeSort)
 
   copy(arrayToBeSort, srcArray)
-  fmt.Println("Result: ", sorting.InsertionSort(arrayToBeSort))
+  fmt.Println("Result: ", sorting.SelectionSort(arrayToBeSort))
+
+  //copy(arrayToBeSort, srcArray)
+  //fmt.Println("Result: ", sorting.InsertionSort(arrayToBeSort))
 
 
 }
