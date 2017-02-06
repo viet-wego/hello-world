@@ -9,16 +9,21 @@ func BubbleSort(array []int) []int  {
   fmt.Println("\nBubble sort")
 
   for i := 0; i < len(array) - 1; i++ {
-    for j := i+1; j < len(array); j++ {
-      fmt.Printf(" - Compare %d, %d", array[i], array[j])
-      if array[i] > array[j] {
-        temp := array[i]
-        array[i] = array[j]
-        array[j] = temp
-        fmt.Printf(" => swapped: %d, %d\n", array[i], array[j])
+    swapped := false
+    for j := 0; j < len(array)-1-i; j++ {
+      fmt.Printf(" - Compare %d, %d", array[j], array[j+1])
+      if array[j] > array[j+1] {
+        temp := array[j]
+        array[j] = array[j+1]
+        array[j+1] = temp
+        swapped = true
+        fmt.Printf(" => swapped: %d, %d\n", array[j], array[j+1])
       } else {
         fmt.Println(" => not swap")
       }
+    }
+    if !swapped {
+      break;
     }
     fmt.Printf("Iteration #%d: %v\n", i+1, array)
   }

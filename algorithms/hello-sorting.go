@@ -6,7 +6,7 @@ import (
   "github.com/viettd/hello-world/algorithms/sorting"
 )
 
-const MAX_VALUE = 100
+const MAX_VALUE = 10
 const LENGTH = 10
 
 func main()  {
