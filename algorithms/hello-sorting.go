@@ -1,7 +1,6 @@
 package main
 
 import (
-  "fmt"
   "math/rand"
   "github.com/viettd/hello-world/algorithms/sorting"
 )
@@ -14,14 +13,13 @@ func main()  {
   for i := 0; i < len(srcArray); i++ {
     srcArray[i] = rand.Intn(MAX_VALUE)
   }
-  fmt.Println("Source array: ", srcArray)
   arrayToBeSort := make([]int, LENGTH)
 
   copy(arrayToBeSort, srcArray)
   sorting.BubbleSort(arrayToBeSort)
 
   copy(arrayToBeSort, srcArray)
-  fmt.Println("Result: ", sorting.SelectionSort(arrayToBeSort))
+  sorting.SelectionSort(arrayToBeSort)
 
   //copy(arrayToBeSort, srcArray)
   //fmt.Println("Result: ", sorting.InsertionSort(arrayToBeSort))

@@ -1,17 +1,14 @@
 package sorting
 
-import (
-  "fmt"
-  "time"
-  )
+import "fmt"
 
 func BubbleSort(array []int) []int  {
   fmt.Println("\nBubble sort")
-
+  fmt.Println("Source array: ", array)
   for i := 0; i < len(array) - 1; i++ {
     swapped := false
     for j := 0; j < len(array)-1-i; j++ {
-      fmt.Printf(" - Compare %d, %d", array[j], array[j+1])
+      fmt.Printf(" Compare %d, %d", array[j], array[j+1])
       if array[j] > array[j+1] {
         temp := array[j]
         array[j] = array[j+1]
@@ -33,38 +30,31 @@ func BubbleSort(array []int) []int  {
 
 func SelectionSort(array []int) []int  {
   fmt.Println("\nSelection sort")
-  start := time.Now().UnixNano()
-  fmt.Println(" - Start: ", start)
-
+  fmt.Println("Source array: ", array)
   for i := 0; i < len(array) - 1; i++ {
-    min := i
+    minIndex := i
     for j := i+1; j < len(array); j++ {
-      if array[j] < array[min] {
-        min = j
+      if array[j] < array[minIndex] {
+        minIndex = j
       }
     }
-    if min != i {
+    fmt.Printf(" Min value:%d at index %d", array[minIndex], minIndex)
+    if minIndex != i {
       temp := array[i]
-      array[i] = array[min]
-      array[min] = temp
+      array[i] = array[minIndex]
+      array[minIndex] = temp
+      fmt.Printf(" => swapped %d, %d\n", array[i], array[minIndex])
+    } else {
+      fmt.Println(" => not swap")
     }
+    fmt.Printf("Iteration #%d: %v\n", i+1, array)
   }
-
-  end := time.Now().UnixNano()
-  fmt.Println(" - End: ", end)
-  fmt.Println(" - Time exec(ns): ", end - start)
 
   return array
 }
 
 func InsertionSort(array []int) []int  {
   fmt.Println("\nInsertion sort")
-  start := time.Now().UnixNano()
-  fmt.Println(" - Start: ", start)
-
-  end := time.Now().UnixNano()
-  fmt.Println(" - End: ", end)
-  fmt.Println(" - Time exec(ns): ", end - start)
 
   return array
 }
