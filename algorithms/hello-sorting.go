@@ -15,14 +15,17 @@ func main()  {
   }
   arrayToBeSort := make([]int, LENGTH)
 
-  copy(arrayToBeSort, srcArray)
-  sorting.BubbleSort(arrayToBeSort)
+  // copy(arrayToBeSort, srcArray)
+  // sorting.BubbleSort(arrayToBeSort)
+  //
+  // copy(arrayToBeSort, srcArray)
+  // sorting.SelectionSort(arrayToBeSort)
+  //
+  // copy(arrayToBeSort, srcArray)
+  // sorting.MergeSort(arrayToBeSort)
 
   copy(arrayToBeSort, srcArray)
-  sorting.SelectionSort(arrayToBeSort)
-
-  copy(arrayToBeSort, srcArray)
-  sorting.MergeSort(arrayToBeSort)
+  sorting.QuickSort(arrayToBeSort)
 
   //copy(arrayToBeSort, srcArray)
   //fmt.Println("Result: ", sorting.InsertionSort(arrayToBeSort))
